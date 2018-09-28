@@ -1,6 +1,7 @@
 package com.huige.erp.ac.aop;
 
 import com.alibaba.druid.support.json.JSONUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.huige.erp.ac.configuration.AcConfiguration;
 import com.huige.erp.ac.pojo.po.TAcUserInfo;
 import com.huige.erp.common.aop.AppControllerLog;
@@ -12,6 +13,7 @@ import com.huige.erp.common.dto.ResponseResult;
 import com.huige.erp.common.exception.AppRedirectException;
 import com.huige.erp.common.pojo.po.TCommonLog;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.web.util.WebUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -43,7 +45,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class AppLogAspect {
 
     @Autowired
-    private AcConfiguration acConfiguration;
+    private ObjectMapper objectMapper;
 
     private static final Logger logger = LoggerFactory.getLogger(AppLogAspect.class);
 
@@ -103,7 +105,7 @@ public class AppLogAspect {
     public void afterReturn(JoinPoint joinPoint, Object result) {
 
         TAcUserInfo userInfo = (TAcUserInfo) SecurityUtils.getSubject().getPrincipal();
-        if (userInfo == null) throw new AppRedirectException("获取个人信息失败，请重新登录", acConfiguration.getLoginEndpoint());
+        if (userInfo == null)  return;
 
         String params = "";
         ResponseResult responseResult = new ResponseResult();
@@ -147,7 +149,7 @@ public class AppLogAspect {
                         reqSource = "PC";
                     }
                 } else {
-                    params += JSONUtils.toJSONString(arg) + ";";
+                    params += objectMapper.writeValueAsString(arg) + ";";
                 }
             }
 
@@ -189,14 +191,14 @@ public class AppLogAspect {
     public void doAfterThrowing(JoinPoint joinPoint, Throwable e) {
         // 读取session中的用户
         TAcUserInfo userInfo = (TAcUserInfo) SecurityUtils.getSubject().getPrincipal();
-        if (userInfo == null) throw new AppRedirectException("获取个人信息失败，请重新登录", acConfiguration.getLoginEndpoint());
+        if (userInfo == null) return;
 
         String params = "";
 
         try {
             if (joinPoint.getArgs() != null && joinPoint.getArgs().length > 0) {
                 for (int i = 0; i < joinPoint.getArgs().length; i++) {
-                    params += joinPoint.getArgs()[i].toString() + ";";
+                    params += objectMapper.writeValueAsString(joinPoint.getArgs()[i])+ ";";
                 }
             }
 

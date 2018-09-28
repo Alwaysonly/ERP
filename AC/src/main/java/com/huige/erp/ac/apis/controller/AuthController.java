@@ -22,6 +22,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletRequest;
+
 /**
  * @Author Z.xichao
  * @Create 2018-8-23
@@ -42,7 +44,7 @@ public class AuthController extends BaseController {
     @PostMapping("/login")
     @AppControllerLog(description = "用户登录", moduleType = LogTypes.moduleType.AC, operateValue = LogTypes.operateValue.login)
     @ApiOperation("用户登录")
-    public String doLogin(String userName, String password, Model model) {
+    public String doLogin(ServletRequest request, String userName, String password, Model model) {
 
         if (StringUtils.isEmpty(userName) || StringUtils.isEmpty(password)) {
             model.addAttribute("msg", "用户名或密码不能为空");
@@ -70,7 +72,7 @@ public class AuthController extends BaseController {
     @ResponseBody
     @AppControllerLog(description = "导航菜单", moduleType = LogTypes.moduleType.AC, operateValue = LogTypes.operateValue.select)
     @ApiOperation("导航菜单")
-    public ResponseResult getNavs() {
+    public ResponseResult getNavs(ServletRequest request) {
         return new ResponseResult(tAcPermissionInfoService.getNavsTreeData());
     }
 

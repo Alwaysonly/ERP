@@ -145,7 +145,7 @@ layui.config({
                             method: 'post',
                             data: ids
                         }, function (data) {
-
+                            layer.close(index);
                         });
                     },
                     btn2: function (index, layero) {

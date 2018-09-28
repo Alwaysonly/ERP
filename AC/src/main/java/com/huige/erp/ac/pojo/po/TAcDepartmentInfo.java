@@ -53,7 +53,7 @@ public class TAcDepartmentInfo implements Serializable {
     /**
      * 是否可用
      */
-    @NotNull(message = "可用标志不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
+    @NotBlank(message = "可用标志不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private String available;
 
 

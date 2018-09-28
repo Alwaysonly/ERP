@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <title>日志管理</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/public.css}" media="all"/>
+    <link rel="stylesheet" href="../../../static/css/page/system/log.css" th:href="@{/css/page/system/log.css}"
+          media="all"/>
+</head>
+
+<body class="childrenBody">
+
+<shiro:hasPermission name="logs:truncation">
+    <blockquote class="layui-elem-quote">
+        <div class="layui-inline">
+            <a class="layui-btn layui-btn-normal layui-icon" id="btnTruncation">重置日志</a>
+        </div>
+    </blockquote>
+</shiro:hasPermission>
+
+<table class="layui-hidden" id="logTable" lay-filter="logTable"></table>
+
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script type="text/javascript" src="../../../static/js/page/system/log.js"
+        th:src="@{/js/page/system/log.js}"></script>
+</body>
+</html>

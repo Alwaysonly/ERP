@@ -67,7 +67,7 @@ public class RootController extends BaseController {
     @GetMapping("/index")
     @AppControllerLog(description = "默认页", moduleType = LogTypes.moduleType.AC, operateValue = LogTypes.operateValue.view)
     @ApiOperation("默认页")
-    public String defaultView(Model model) {
+    public String defaultView(ServletRequest request, Model model) {
         // 用户信息
         TAcUserInfo userInfo = (TAcUserInfo) SecurityUtils.getSubject().getPrincipal();
         if (userInfo == null) return "redirect:" + acConfiguration.getLoginEndpoint();

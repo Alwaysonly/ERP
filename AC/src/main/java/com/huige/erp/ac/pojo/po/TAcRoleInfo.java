@@ -3,6 +3,11 @@ package com.huige.erp.ac.pojo.po;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.huige.erp.common.validator.AppConfigGroup;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -18,14 +23,19 @@ public class TAcRoleInfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
+    @NotNull(message = "ID不能为空",groups = {AppConfigGroup.Update.class})
     private Long id;
     /**
-     * 权限编码
+     * 角色编码
      */
+    @NotBlank(message = "角色编码不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
+    @Length(max = 64,message = "角色编码过长",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private String roleCode;
     /**
      * 角色名称
      */
+    @NotBlank(message = "角色名称不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
+    @Length(max = 64,message = "角色名称过长",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private String roleName;
     /**
      * 修改时间
@@ -35,7 +45,9 @@ public class TAcRoleInfo implements Serializable {
      * 创建时间
      */
     private Date createTime;
+    @NotNull(message = "顺序号不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private Integer order;
+    @NotBlank(message = "可用标志不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private String available;
 
 

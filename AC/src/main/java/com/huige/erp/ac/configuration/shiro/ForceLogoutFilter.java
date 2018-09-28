@@ -37,7 +37,7 @@ public class ForceLogoutFilter extends AccessControlFilter {
         Map<String, Object> resultMap = new HashMap<>();
         if ("XMLHttpRequest".equalsIgnoreCase(((HttpServletRequest) request).getHeader("X-Requested-With"))) {
             resultMap.put("code", 301);
-            resultMap.put("message", "您已经在其他地方登录，请重新登录！");
+            resultMap.put("message", "您已经被管理员强制退出，请重新登录!");
             resultMap.put("data", loginUrl);
             response.setCharacterEncoding("UTF-8");
             PrintWriter out = response.getWriter();

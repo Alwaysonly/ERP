@@ -142,7 +142,7 @@ public class KickoutSessionControlFilter extends AccessControlFilter {
             //判断是不是Ajax请求
             if ("XMLHttpRequest".equalsIgnoreCase(((HttpServletRequest) request).getHeader("X-Requested-With"))) {
                 resultMap.put("code", 301);
-                resultMap.put("message", "您已经被管理员强制退出，请重新登录！");
+                resultMap.put("message", "您已经在其他地方登录，请重新登录!");
                 resultMap.put("data", kickoutUrl);
                 //输出json串
                 out(response, resultMap);

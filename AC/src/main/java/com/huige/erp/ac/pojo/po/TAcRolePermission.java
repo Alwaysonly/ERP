@@ -1,5 +1,8 @@
 package com.huige.erp.ac.pojo.po;
 
+import com.huige.erp.common.validator.AppConfigGroup;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -14,7 +17,9 @@ public class TAcRolePermission implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @NotNull(message = "权限角色ID不能为空")
     private Long roleId;
+    @NotNull(message = "权限ID不能为空")
     private Long permissionId;
 
 

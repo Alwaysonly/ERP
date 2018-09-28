@@ -3,8 +3,12 @@ package com.huige.erp.ac.pojo.po;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.huige.erp.common.validator.AppConfigGroup;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -22,22 +26,30 @@ public class TAcUserInfo implements Serializable {
      * id
      */
     @TableId(value = "id", type = IdType.AUTO)
+    @NotNull(message = "ID不能为空",groups = {AppConfigGroup.Update.class})
     private Long id;
     /**
      * 账号
      */
+    @NotBlank(message = "账号不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
+    @Length(max = 64,message = "账号过长",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private String userAccount;
     /**
      * 用户名称
      */
+    @NotBlank(message = "用户名称不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
+    @Length(max = 32,message = "用户名称过长",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private String userName;
     /**
      * 密码
      */
+    @NotBlank(message = "密码不能为空",groups = {AppConfigGroup.Add.class})
+    @Length(max = 64,message = "密码过长",groups = {AppConfigGroup.Add.class})
     private String userPassword;
     /**
      * 性别
      */
+    @NotBlank(message = "性别不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private String userSex;
     /**
      * 出生日期
@@ -51,11 +63,13 @@ public class TAcUserInfo implements Serializable {
     /**
      * 所属部门
      */
+    @NotNull(message = "所属部门不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private Long userDepartment;
 
     /**
      * 用户职位
      */
+    @NotNull(message = "用户职位不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private Long userPosition;
     /**
      * 冻结
@@ -68,6 +82,8 @@ public class TAcUserInfo implements Serializable {
     /**
      * 权限版本
      */
+    @NotNull(message = "权限版本不能为空",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
+    @Length(max = 36,message = "权限编码过长",groups = {AppConfigGroup.Add.class,AppConfigGroup.Update.class})
     private String version;
     /**
      * 创建时间

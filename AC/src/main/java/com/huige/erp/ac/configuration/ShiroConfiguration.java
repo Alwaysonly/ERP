@@ -148,6 +148,7 @@ public class ShiroConfiguration {
     @Bean
     public DefaultWebSessionManager sessionManager() {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
+        sessionManager.setGlobalSessionTimeout(1800000);
         sessionManager.setSessionDAO(redisSessionDAO());
         return sessionManager;
     }

@@ -127,11 +127,7 @@ layui.config({
                     data: fromData
                 },
                 function (data) {
-                    treeGrid.reload('permissionTreeTable', {
-                        page: {
-                            curr: 1
-                        }
-                    });
+                    location.reload();
                     layer.closeAll();
                 });
         } else {

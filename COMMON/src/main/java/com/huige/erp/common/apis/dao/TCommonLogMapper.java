@@ -13,4 +13,5 @@ import com.huige.erp.common.base.IBaseMapper;
  */
 public interface TCommonLogMapper extends IBaseMapper<TCommonLog> {
 
+    void execTruncation();
 }

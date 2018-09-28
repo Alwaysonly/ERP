@@ -13,4 +13,5 @@ import com.huige.erp.common.base.IBaseService;
  */
 public interface TCommonLogService extends IBaseService<TCommonLog> {
 
+    void execTruncation();
 }

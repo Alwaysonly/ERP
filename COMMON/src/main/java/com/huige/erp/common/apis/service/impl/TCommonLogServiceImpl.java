@@ -17,4 +17,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class TCommonLogServiceImpl extends BaseServiceImpl<TCommonLogMapper, TCommonLog> implements TCommonLogService {
 
+    @Override
+    public void execTruncation() {
+        baseMapper.execTruncation();
+    }
 }

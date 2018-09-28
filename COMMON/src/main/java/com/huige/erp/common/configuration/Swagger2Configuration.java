@@ -68,4 +68,21 @@ public class Swagger2Configuration {
                 .build()
                 ;
     }
+
+    @Bean
+    public Docket commonApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("98.ERP_COMMON")
+                .apiInfo(new ApiInfoBuilder()
+                        .title("慧格创新科技有限公司_ERP_接口文档")
+                        .description("公共模块_接口文档")
+                        .contact(new Contact("Mr.Zhang", "http://zhangxichao.me", "zhenxinAngel@vip.qq.com"))
+                        .version("版本号:1.0")
+                        .build())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.huige.erp.common"))
+                .paths(PathSelectors.any())
+                .build()
+                ;
+    }
 }
