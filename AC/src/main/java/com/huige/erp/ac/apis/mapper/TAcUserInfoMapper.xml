@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huige.erp.ac.apis.dao.TAcUserInfoMapper">
+
+    <select id="selectUserInfoList" resultType="com.huige.erp.ac.pojo.dto.BeanUserInfoList">
+        select
+        t_ac_user_info.id,
+        t_ac_user_info.user_account,
+        t_ac_user_info.user_name,
+        t_ac_user_info.user_password,
+        t_ac_user_info.user_sex,
+        t_ac_user_info.user_birthday,
+        t_ac_user_info.user_phone,
+        t_ac_user_info.user_department,
+        i.name as user_department_desc,
+        t_ac_user_info.user_position,
+        t.name as user_position_desc,
+        tari.id as user_role,
+        tari.role_name as user_role_name,
+        t_ac_user_info.locked,
+        t_ac_user_info.deleted,
+        t_ac_user_info.version,
+        t_ac_user_info.create_time,
+        t_ac_user_info.update_time,
+        t_ac_user_info.order
+        from t_ac_user_info
+        left join t_ac_department_info i on t_ac_user_info.user_department = i.id
+        left join t_ac_position_info t on t_ac_user_info.user_position = t.id
+        left join t_ac_user_role t2 on t_ac_user_info.id = t2.user_id
+        left join t_ac_role_info tari on t2.role_id = tari.id
+        <where>
+            <if test="userAccount !=null and userAccount!=''">and t_ac_user_info.user_account like '%${userAccount}%'
+            </if>
+        </where>
+    </select>
+
+
+    <select id="getUserLogin" resultType="com.huige.erp.ac.pojo.po.TAcUserInfo">
+        select
+            id,
+            user_account,
+            user_name,
+            user_password,
+            user_sex,
+            user_birthday,
+            user_phone,
+            user_department,
+            user_position,
+            locked,
+            deleted,
+            version,
+            create_time,
+            update_time,
+            `order`
+        from t_ac_user_info
+        where user_account = #{userAccount} and user_password = #{password}
+    </select>
+    <select id="checkDepartmentUse" resultType="java.lang.Integer">
+        select count(1)
+        from t_ac_user_info
+        where t_ac_user_info.user_department = #{departmentId}
+    </select>
+</mapper>

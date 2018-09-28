@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <title>权限管理</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" th:href="@{/lib/layui/css/layui.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/public.css}" media="all"/>
+    <link rel="stylesheet" href="../../../static/css/page/ac/permission.css" th:href="@{/css/page/ac/permission.css}"
+          media="all"/>
+</head>
+
+<body class="childrenBody">
+
+<table class="layui-hidden" id="permissionTreeTable" lay-filter="permissionTreeTable"></table>
+
+<!--新增弹出层-->
+<div id="permissionFormLayout" hidden>
+    <form class="layui-form layui-form-pane" lay-filter="permissionForm">
+        <div class="layui-form-item layui-hide">
+            <label class="layui-form-label">ID</label>
+            <div class="layui-input-block">
+                <input type="number" name="id" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">权限代码</label>
+            <div class="layui-input-block">
+                <input type="text" name="code" placeholder="请输入权限代码" lay-verify="required" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">权限名称</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" placeholder="请输入权限名称" lay-verify="required" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">图标</label>
+            <div class="layui-input-block">
+                <input type="text" name="icon" id="iconPicker" lay-filter="iconPicker" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">职位</label>
+            <div class="layui-input-block">
+                <select name="position" lay-verify="required">
+                    <option th:each="positionInfo:${positionInfos}" th:value="${positionInfo.id}"
+                            th:text="${positionInfo.name}"></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">所属菜单</label>
+            <div class="layui-input-block">
+                <select name="pid" lay-verify="required" id="pid">
+                    <shiro:hasPermission name="permission:create">
+                        <option th:value="0" th:text="根节点"></option>
+                    </shiro:hasPermission>
+                    <option th:each="permissionInfo:${permissionInfos}" th:value="${permissionInfo.id}"
+                            th:text="${permissionInfo.name}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">类型</label>
+            <div class="layui-input-block">
+                <select name="type" lay-verify="required">
+                    <option value="menu" selected>菜单</option>
+                    <option value="button">按钮</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">资源路径</label>
+            <div class="layui-input-block">
+                <input type="text" name="url" placeholder="请输入资源路径" lay-verify="required" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">顺序号</label>
+            <div class="layui-input-block">
+                <input type="number" value="0" name="order" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="reset" class="layui-btn layui-btn-primary" id="btnReset">重置</button>
+                <button class="layui-btn" lay-submit lay-filter="commit">保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/html" id="toolsBar" th:inline="text">
+    <shiro:hasPermission name="permissions:create">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="add">添加</a>
+    </shiro:hasPermission>
+
+    <shiro:hasPermission name="permissions:update">
+        <a class="layui-btn layui-btn-xs" lay-event="update">修改</a>
+    </shiro:hasPermission>
+
+    <shiro:hasPermission name="permissions:delete">
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </shiro:hasPermission>
+</script>
+
+<script type="text/javascript" th:src="@{/lib/layui/layui.js}"></script>
+<script type="text/javascript" src="../../../static/js/page/ac/permission.js"
+        th:src="@{/js/page/ac/permission.js}"></script>
+</body>
+</html>

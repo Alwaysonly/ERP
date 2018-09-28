@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/AC" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/COMMON" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CRM" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HRS" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MOBILE" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/OA" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SYSTEM" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/VIEW" charset="UTF-8" />
+  </component>
+</project>

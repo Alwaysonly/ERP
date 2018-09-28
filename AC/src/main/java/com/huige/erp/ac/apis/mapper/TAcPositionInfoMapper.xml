@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huige.erp.ac.apis.dao.TAcPositionInfoMapper">
+
+    <select id="findAllPositionCodeByUserId" resultType="java.lang.String">
+        <![CDATA[
+        select t_ac_position_info.code from t_ac_position_info
+        where t_ac_position_info.weight <= (select t_ac_user_info.user_position from t_ac_user_info where t_ac_user_info.id = #{userId})
+        ]]>
+    </select>
+</mapper>

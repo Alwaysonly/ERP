@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huige.erp.ac.apis.dao.TAcPermissionInfoMapper">
+
+
+    <select id="findAllPermissionsByUserId" resultType="java.lang.String">
+        select t_ac_permission_info.code
+        from t_ac_permission_info, t_ac_role_info, t_ac_role_permission, t_ac_user_role
+        where t_ac_permission_info.id = t_ac_role_permission.permission_id
+              and t_ac_role_info.id = t_ac_role_permission.role_id
+              and t_ac_role_info.id = t_ac_user_role.role_id
+              and t_ac_user_role.user_id = #{userId}
+    </select>
+    <select id="getPermissionInjections" resultType="com.huige.erp.ac.pojo.dto.BeanPermissionInjection">
+        select
+            t_ac_permission_info.id,
+            t_ac_permission_info.code,
+            t_ac_permission_info.name,
+            (select t_ac_position_info.code
+             from t_ac_position_info
+             where t_ac_position_info.id = t_ac_permission_info.position) position_code,
+            t_ac_permission_info.url
+        from t_ac_permission_info
+    </select>
+    <select id="checkPositionUse" resultType="java.lang.Integer">
+        select count(1)
+        from t_ac_permission_info
+        where t_ac_permission_info.position = #{positionId}
+    </select>
+    <select id="getPermissionByUserId" resultType="com.huige.erp.ac.pojo.dto.tree.BeanTreePermission">
+        select
+            t_ac_permission_info.id,
+            t_ac_permission_info.code,
+            t_ac_permission_info.name,
+            t_ac_permission_info.position,
+            t_ac_permission_info.pid,
+            t_ac_permission_info.type,
+            t_ac_permission_info.icon,
+            t_ac_permission_info.url,
+            t_ac_permission_info.create_time,
+            t_ac_permission_info.update_time,
+            t_ac_permission_info.`order`
+        from t_ac_permission_info
+            left join t_ac_role_permission t on t_ac_permission_info.id = t.permission_id
+            left join t_ac_user_role on t.role_id = t_ac_user_role.role_id
+        where t_ac_permission_info.type = 'menu'  and user_id = #{userId}
+    </select>
+
+</mapper>

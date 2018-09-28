@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AC/AC.iml" filepath="$PROJECT_DIR$/AC/AC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/COMMON/COMMON.iml" filepath="$PROJECT_DIR$/COMMON/COMMON.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CRM/CRM.iml" filepath="$PROJECT_DIR$/CRM/CRM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HG_ERP.iml" filepath="$PROJECT_DIR$/HG_ERP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HRS/HRS.iml" filepath="$PROJECT_DIR$/HRS/HRS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MOBILE/MOBILE.iml" filepath="$PROJECT_DIR$/MOBILE/MOBILE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OA/OA.iml" filepath="$PROJECT_DIR$/OA/OA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SYSTEM/SYSTEM.iml" filepath="$PROJECT_DIR$/SYSTEM/SYSTEM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VIEW/VIEW.iml" filepath="$PROJECT_DIR$/VIEW/VIEW.iml" />
+    </modules>
+  </component>
+</project>

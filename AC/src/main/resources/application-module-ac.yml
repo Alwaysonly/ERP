@@ -1,0 +1,19 @@
+# 自定义配置
+com:
+  huige:
+    erp:
+      ac:
+        loginEndpoint: /login
+        successEndpoint: /index
+        kickoutEndpoint: /login
+        urlWhiteList:
+          - /css/**
+          - /js/**
+          - /img/**
+          - /images/**
+          - /json/**
+          - /auth/navs
+          - /lib/**
+          - /swagger*/**
+          - /favicon.ico
+          - /auth/login

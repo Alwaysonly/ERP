@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.huige.epr</groupId>
+    <artifactId>huige-erp-view</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>huige-erp-view</name>
+    <description>企业管理系统web视图</description>
+
+    <parent>
+        <groupId>com.huige.erp</groupId>
+        <artifactId>huige-erp-platform</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+    </properties>
+
+    <dependencies>
+        <!--thymeleaf-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--授权中心-->
+        <dependency>
+            <groupId>com.huige.erp</groupId>
+            <artifactId>huige-erp-ac</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--客户关系管理-->
+        <dependency>
+            <groupId>com.huige.erp</groupId>
+            <artifactId>huige-erp-crm</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--人力资源管理-->
+        <dependency>
+            <groupId>com.huige.erp</groupId>
+            <artifactId>huige-erp-hrs</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--自动化办公-->
+        <dependency>
+            <groupId>com.huige.erp</groupId>
+            <artifactId>huige-erp-oa</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--移动端-->
+        <dependency>
+            <groupId>com.huige.erp</groupId>
+            <artifactId>huige-erp-mobile</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--系统管理-->
+        <dependency>
+            <groupId>com.huige.erp</groupId>
+            <artifactId>huige-erp-system</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

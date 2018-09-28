@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="AC" />
+        <module name="COMMON" />
+        <module name="CRM" />
+        <module name="HRS" />
+        <module name="MOBILE" />
+        <module name="OA" />
+        <module name="SYSTEM" />
+        <module name="VIEW" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AC" target="1.8" />
+      <module name="COMMON" target="1.8" />
+      <module name="CRM" target="1.8" />
+      <module name="HG_ERP" target="1.8" />
+      <module name="HRS" target="1.8" />
+      <module name="MOBILE" target="1.8" />
+      <module name="OA" target="1.8" />
+      <module name="SYSTEM" target="1.8" />
+      <module name="VIEW" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

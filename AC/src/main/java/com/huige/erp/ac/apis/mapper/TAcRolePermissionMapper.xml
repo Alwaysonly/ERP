@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huige.erp.ac.apis.dao.TAcRolePermissionMapper">
+
+    <insert id="insertByBatch" parameterType="java.util.ArrayList">
+        insert into t_ac_role_permission(role_id,permission_id) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.roleId}, #{item.permissionId})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByRoleId">
+        delete from t_ac_role_permission where role_id = #{roleId}
+    </delete>
+
+    <select id="checkPermissionUse" resultType="java.lang.Long">
+        select count(1)
+        from t_ac_role_permission
+        where t_ac_role_permission.permission_id = #{permissionId}
+    </select>
+
+    <select id="getPermissionTreeByRoleId" resultType="com.huige.erp.ac.pojo.dto.tree.BeanTreePermission">
+        select
+            t_ac_permission_info.id,
+            t_ac_permission_info.code,
+            t_ac_permission_info.name,
+            t_ac_permission_info.position,
+            t_ac_permission_info.pid,
+            t_ac_permission_info.type,
+            t_ac_permission_info.icon,
+            t_ac_permission_info.url,
+            t_ac_permission_info.create_time,
+            t_ac_permission_info.update_time,
+            ifnull(role_id, '0') as checked,
+            t_ac_permission_info.`order`
+        from t_ac_permission_info
+            left join t_ac_role_permission on t_ac_permission_info.id = t_ac_role_permission.permission_id
+                                              and t_ac_role_permission.role_id = #{roleId};
+    </select>
+</mapper>
