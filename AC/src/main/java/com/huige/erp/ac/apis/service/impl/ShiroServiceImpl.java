@@ -25,7 +25,7 @@ import java.util.Map;
 @Service
 public class ShiroServiceImpl implements ShiroService {
 
-    private final Logger logger = LoggerFactory.getLogger(ShiroServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(ShiroServiceImpl.class);
 
     @Autowired
     ShiroFilterFactoryBean shiroFilterFactoryBean;

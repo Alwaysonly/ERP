@@ -4,7 +4,11 @@ import com.huige.erp.ac.apis.service.TAcPermissionInfoService;
 import com.huige.erp.ac.configuration.AcConfiguration;
 import com.huige.erp.ac.pojo.po.TAcPermissionInfo;
 import com.huige.erp.ac.pojo.po.TAcUserInfo;
+import com.huige.erp.common.aop.AppControllerLog;
 import com.huige.erp.common.base.BaseController;
+import com.huige.erp.common.constants.LogTypes;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -25,9 +29,10 @@ import java.util.List;
  */
 @Controller
 @RequestMapping
+@Api(tags = "3.跟目录")
 public class RootController extends BaseController {
 
-    private final Logger logger = LoggerFactory.getLogger(RootController.class);
+    private static final Logger logger = LoggerFactory.getLogger(RootController.class);
 
     @Autowired
     private AcConfiguration acConfiguration;
@@ -36,11 +41,15 @@ public class RootController extends BaseController {
     private TAcPermissionInfoService tAcPermissionInfoService;
 
     @GetMapping("/")
+    @AppControllerLog(description = "根目录", moduleType = LogTypes.moduleType.AC, operateValue = LogTypes.operateValue.view)
+    @ApiOperation("根目录")
     public String root() {
         return "redirect:" + acConfiguration.getLoginEndpoint();
     }
 
     @GetMapping("/login")
+    @AppControllerLog(description = "用户登录", moduleType = LogTypes.moduleType.AC, operateValue = LogTypes.operateValue.view)
+    @ApiOperation("用户登录")
     public String loginView(ServletRequest req, Model model) {
         if (req.getParameter("forceLogout") != null) {
             model.addAttribute("msg", "您已经被管理员强制退出，请重新登录");
@@ -56,6 +65,8 @@ public class RootController extends BaseController {
     }
 
     @GetMapping("/index")
+    @AppControllerLog(description = "默认页", moduleType = LogTypes.moduleType.AC, operateValue = LogTypes.operateValue.view)
+    @ApiOperation("默认页")
     public String defaultView(Model model) {
         // 用户信息
         TAcUserInfo userInfo = (TAcUserInfo) SecurityUtils.getSubject().getPrincipal();

@@ -15,5 +15,6 @@ com:
           - /auth/navs
           - /lib/**
           - /swagger*/**
+          - /doc.html
           - /favicon.ico
           - /auth/login

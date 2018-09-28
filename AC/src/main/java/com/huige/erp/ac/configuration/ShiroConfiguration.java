@@ -36,7 +36,7 @@ import java.util.Map;
 @Configuration
 public class ShiroConfiguration {
 
-    private final Logger logger = LoggerFactory.getLogger(ShiroConfiguration.class);
+    private static final Logger logger = LoggerFactory.getLogger(ShiroConfiguration.class);
 
     @Autowired
     private AcConfiguration acConfiguration;

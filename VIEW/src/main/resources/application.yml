@@ -17,3 +17,5 @@ spring:
     prefix: classpath:/templates/
     mode: HTML5
     content-type: text/html
+  aop:
+    auto: true

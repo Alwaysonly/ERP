@@ -960,28 +960,29 @@
     <table id="244" parent="6" name="t_ac_user_role">
       <Comment>用户权限关系表</Comment>
     </table>
-    <column id="245" parent="238" name="id">
+    <table id="245" parent="6" name="t_common_log"/>
+    <column id="246" parent="238" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="238" name="code">
+    <column id="247" parent="238" name="code">
       <Position>2</Position>
       <Comment>部门编码</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="238" name="name">
+    <column id="248" parent="238" name="name">
       <Position>3</Position>
       <Comment>部门名称</Comment>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="238" name="create_time">
+    <column id="249" parent="238" name="create_time">
       <Position>4</Position>
       <Comment>创建时间</Comment>
       <DataType>timestamp|0s</DataType>
@@ -989,13 +990,13 @@
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="238" name="update_time">
+    <column id="250" parent="238" name="update_time">
       <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="238" name="order">
+    <column id="251" parent="238" name="order">
       <Position>6</Position>
       <Comment>顺序号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1003,7 +1004,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="238" name="available">
+    <column id="252" parent="238" name="available">
       <Position>7</Position>
       <Comment>是否可用</Comment>
       <DataType>char(1)|0s</DataType>
@@ -1011,39 +1012,39 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="252" parent="238" name="t_ac_department_info_id_uindex">
+    <index id="253" parent="238" name="t_ac_department_info_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="253" parent="238" name="t_ac_department_info_code_uindex">
+    <index id="254" parent="238" name="t_ac_department_info_code_uindex">
       <ColNames>code</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="254" parent="238" name="t_ac_department_info_name_uindex">
+    <index id="255" parent="238" name="t_ac_department_info_name_uindex">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="255" parent="238" name="PRIMARY">
+    <key id="256" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="256" parent="238" name="t_ac_department_info_id_uindex">
+    <key id="257" parent="238" name="t_ac_department_info_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>t_ac_department_info_id_uindex</UnderlyingIndexName>
     </key>
-    <key id="257" parent="238" name="t_ac_department_info_code_uindex">
+    <key id="258" parent="238" name="t_ac_department_info_code_uindex">
       <ColNames>code</ColNames>
       <UnderlyingIndexName>t_ac_department_info_code_uindex</UnderlyingIndexName>
     </key>
-    <key id="258" parent="238" name="t_ac_department_info_name_uindex">
+    <key id="259" parent="238" name="t_ac_department_info_name_uindex">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>t_ac_department_info_name_uindex</UnderlyingIndexName>
     </key>
-    <column id="259" parent="239" name="id">
+    <column id="260" parent="239" name="id">
       <Position>1</Position>
       <Comment>id</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1051,21 +1052,21 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="239" name="code">
+    <column id="261" parent="239" name="code">
       <Position>2</Position>
       <Comment>权限代码</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="239" name="name">
+    <column id="262" parent="239" name="name">
       <Position>3</Position>
       <Comment>权限名称</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="239" name="position">
+    <column id="263" parent="239" name="position">
       <Position>4</Position>
       <Comment>职位</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1073,14 +1074,14 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="239" name="pid">
+    <column id="264" parent="239" name="pid">
       <Position>5</Position>
       <Comment>父id</Comment>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="239" name="type">
+    <column id="265" parent="239" name="type">
       <Position>6</Position>
       <Comment>资源类型</Comment>
       <DataType>enum(&apos;button&apos;, &apos;menu&apos;)|0e</DataType>
@@ -1088,20 +1089,20 @@
       <DefaultExpression>&apos;menu&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="239" name="icon">
+    <column id="266" parent="239" name="icon">
       <Position>7</Position>
       <Comment>图标</Comment>
       <DataType>varchar(256)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="239" name="url">
+    <column id="267" parent="239" name="url">
       <Position>8</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;/&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="239" name="create_time">
+    <column id="268" parent="239" name="create_time">
       <Position>9</Position>
       <Comment>创建时间</Comment>
       <DataType>timestamp|0s</DataType>
@@ -1109,111 +1110,111 @@
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="239" name="update_time">
+    <column id="269" parent="239" name="update_time">
       <Position>10</Position>
       <Comment>更新时间</Comment>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="239" name="order">
+    <column id="270" parent="239" name="order">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="270" parent="239" name="t_ac_permissions_info_id_uindex">
+    <index id="271" parent="239" name="t_ac_permissions_info_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="271" parent="239" name="t_ac_permissions_info_code_uindex">
+    <index id="272" parent="239" name="t_ac_permissions_info_code_uindex">
       <ColNames>code</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="272" parent="239" name="t_ac_permissions_info_name_uindex">
+    <index id="273" parent="239" name="t_ac_permissions_info_name_uindex">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="273" parent="239" name="t_ac_permission_info_t_ac_position_info_id_fk">
+    <index id="274" parent="239" name="t_ac_permission_info_t_ac_position_info_id_fk">
       <ColNames>position</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="274" parent="239" name="PRIMARY">
+    <key id="275" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="275" parent="239" name="t_ac_permissions_info_id_uindex">
+    <key id="276" parent="239" name="t_ac_permissions_info_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>t_ac_permissions_info_id_uindex</UnderlyingIndexName>
     </key>
-    <key id="276" parent="239" name="t_ac_permissions_info_code_uindex">
+    <key id="277" parent="239" name="t_ac_permissions_info_code_uindex">
       <ColNames>code</ColNames>
       <UnderlyingIndexName>t_ac_permissions_info_code_uindex</UnderlyingIndexName>
     </key>
-    <key id="277" parent="239" name="t_ac_permissions_info_name_uindex">
+    <key id="278" parent="239" name="t_ac_permissions_info_name_uindex">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>t_ac_permissions_info_name_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="278" parent="239" name="t_ac_permission_info_t_ac_position_info_id_fk">
+    <foreign-key id="279" parent="239" name="t_ac_permission_info_t_ac_position_info_id_fk">
       <ColNames>position</ColNames>
       <RefSchemaName>huige_erp_db</RefSchemaName>
       <RefTableName>t_ac_position_info</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="279" parent="240" name="id">
+    <column id="280" parent="240" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="240" name="code">
+    <column id="281" parent="240" name="code">
       <Position>2</Position>
       <Comment>职位编码</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="240" name="name">
+    <column id="282" parent="240" name="name">
       <Position>3</Position>
       <Comment>职位名称</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="240" name="weight">
+    <column id="283" parent="240" name="weight">
       <Position>4</Position>
       <Comment>权限值(权限值大的默认有用比他小的所有权限)</Comment>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="240" name="create_time">
+    <column id="284" parent="240" name="create_time">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="240" name="update_time">
+    <column id="285" parent="240" name="update_time">
       <Position>6</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="240" name="order">
+    <column id="286" parent="240" name="order">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="240" name="available">
+    <column id="287" parent="240" name="available">
       <Position>8</Position>
       <Comment>可用状态</Comment>
       <DataType>char(1)|0s</DataType>
@@ -1221,60 +1222,60 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="287" parent="240" name="t_ac_position_info_id_uindex">
+    <index id="288" parent="240" name="t_ac_position_info_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="288" parent="240" name="t_ac_position_info_code_uindex">
+    <index id="289" parent="240" name="t_ac_position_info_code_uindex">
       <ColNames>code</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="289" parent="240" name="t_ac_position_info_name_uindex">
+    <index id="290" parent="240" name="t_ac_position_info_name_uindex">
       <ColNames>name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="290" parent="240" name="PRIMARY">
+    <key id="291" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="291" parent="240" name="t_ac_position_info_id_uindex">
+    <key id="292" parent="240" name="t_ac_position_info_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>t_ac_position_info_id_uindex</UnderlyingIndexName>
     </key>
-    <key id="292" parent="240" name="t_ac_position_info_code_uindex">
+    <key id="293" parent="240" name="t_ac_position_info_code_uindex">
       <ColNames>code</ColNames>
       <UnderlyingIndexName>t_ac_position_info_code_uindex</UnderlyingIndexName>
     </key>
-    <key id="293" parent="240" name="t_ac_position_info_name_uindex">
+    <key id="294" parent="240" name="t_ac_position_info_name_uindex">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>t_ac_position_info_name_uindex</UnderlyingIndexName>
     </key>
-    <column id="294" parent="241" name="id">
+    <column id="295" parent="241" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="241" name="role_code">
+    <column id="296" parent="241" name="role_code">
       <Position>2</Position>
       <Comment>权限编码</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="241" name="role_name">
+    <column id="297" parent="241" name="role_name">
       <Position>3</Position>
       <Comment>角色名称</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="241" name="update_time">
+    <column id="298" parent="241" name="update_time">
       <Position>4</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
@@ -1282,7 +1283,7 @@
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="241" name="create_time">
+    <column id="299" parent="241" name="create_time">
       <Position>5</Position>
       <Comment>创建时间</Comment>
       <DataType>timestamp|0s</DataType>
@@ -1290,7 +1291,7 @@
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="241" name="order">
+    <column id="300" parent="241" name="order">
       <Position>6</Position>
       <Comment>顺序号</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1298,7 +1299,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="241" name="available">
+    <column id="301" parent="241" name="available">
       <Position>7</Position>
       <Comment>可用状态</Comment>
       <DataType>char(1)|0s</DataType>
@@ -1306,71 +1307,71 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="301" parent="241" name="t_ac_role_info_id_uindex">
+    <index id="302" parent="241" name="t_ac_role_info_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="302" parent="241" name="t_ac_role_info_role_code_uindex">
+    <index id="303" parent="241" name="t_ac_role_info_role_code_uindex">
       <ColNames>role_code</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="303" parent="241" name="t_ac_role_info_role_name_uindex">
+    <index id="304" parent="241" name="t_ac_role_info_role_name_uindex">
       <ColNames>role_name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="304" parent="241" name="PRIMARY">
+    <key id="305" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="305" parent="241" name="t_ac_role_info_id_uindex">
+    <key id="306" parent="241" name="t_ac_role_info_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>t_ac_role_info_id_uindex</UnderlyingIndexName>
     </key>
-    <key id="306" parent="241" name="t_ac_role_info_role_code_uindex">
+    <key id="307" parent="241" name="t_ac_role_info_role_code_uindex">
       <ColNames>role_code</ColNames>
       <UnderlyingIndexName>t_ac_role_info_role_code_uindex</UnderlyingIndexName>
     </key>
-    <key id="307" parent="241" name="t_ac_role_info_role_name_uindex">
+    <key id="308" parent="241" name="t_ac_role_info_role_name_uindex">
       <ColNames>role_name</ColNames>
       <UnderlyingIndexName>t_ac_role_info_role_name_uindex</UnderlyingIndexName>
     </key>
-    <column id="308" parent="242" name="role_id">
+    <column id="309" parent="242" name="role_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="242" name="permission_id">
+    <column id="310" parent="242" name="permission_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="310" parent="242" name="t_ac_role_permission_t_ac_role_info_id_fk">
+    <index id="311" parent="242" name="t_ac_role_permission_t_ac_role_info_id_fk">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="311" parent="242" name="t_ac_role_permission_t_ac_permission_info_id_fk">
+    <index id="312" parent="242" name="t_ac_role_permission_t_ac_permission_info_id_fk">
       <ColNames>permission_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="312" parent="242" name="t_ac_role_permission_t_ac_role_info_id_fk">
+    <foreign-key id="313" parent="242" name="t_ac_role_permission_t_ac_role_info_id_fk">
       <ColNames>role_id</ColNames>
       <RefSchemaName>huige_erp_db</RefSchemaName>
       <RefTableName>t_ac_role_info</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="313" parent="242" name="t_ac_role_permission_t_ac_permission_info_id_fk">
+    <foreign-key id="314" parent="242" name="t_ac_role_permission_t_ac_permission_info_id_fk">
       <ColNames>permission_id</ColNames>
       <RefSchemaName>huige_erp_db</RefSchemaName>
       <RefTableName>t_ac_permission_info</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="314" parent="243" name="id">
+    <column id="315" parent="243" name="id">
       <Position>1</Position>
       <Comment>id</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1378,52 +1379,52 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="243" name="user_account">
+    <column id="316" parent="243" name="user_account">
       <Position>2</Position>
       <Comment>账号</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="243" name="user_name">
+    <column id="317" parent="243" name="user_name">
       <Position>3</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="243" name="user_password">
+    <column id="318" parent="243" name="user_password">
       <Position>4</Position>
       <Comment>密码</Comment>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="243" name="user_sex">
+    <column id="319" parent="243" name="user_sex">
       <Position>5</Position>
       <Comment>性别</Comment>
       <DataType>char(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="243" name="user_birthday">
+    <column id="320" parent="243" name="user_birthday">
       <Position>6</Position>
       <Comment>出生日期</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="243" name="user_phone">
+    <column id="321" parent="243" name="user_phone">
       <Position>7</Position>
       <Comment>联系方式</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="243" name="user_department">
+    <column id="322" parent="243" name="user_department">
       <Position>8</Position>
       <Comment>所属部门</Comment>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="243" name="user_position">
+    <column id="323" parent="243" name="user_position">
       <Position>9</Position>
       <Comment>职位</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1431,7 +1432,7 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="323" parent="243" name="locked">
+    <column id="324" parent="243" name="locked">
       <Position>10</Position>
       <Comment>冻结</Comment>
       <DataType>char(1)|0s</DataType>
@@ -1439,21 +1440,21 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="243" name="deleted">
+    <column id="325" parent="243" name="deleted">
       <Position>11</Position>
       <Comment>失效</Comment>
       <DataType>char(1)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="325" parent="243" name="version">
+    <column id="326" parent="243" name="version">
       <Position>12</Position>
       <Comment>权限版本</Comment>
       <DataType>varchar(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="326" parent="243" name="create_time">
+    <column id="327" parent="243" name="create_time">
       <Position>13</Position>
       <Comment>创建时间</Comment>
       <DataType>timestamp|0s</DataType>
@@ -1461,7 +1462,7 @@
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="243" name="update_time">
+    <column id="328" parent="243" name="update_time">
       <Position>14</Position>
       <Comment>更新时间</Comment>
       <DataType>datetime|0s</DataType>
@@ -1469,87 +1470,203 @@
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="243" name="order">
+    <column id="329" parent="243" name="order">
       <Position>15</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="329" parent="243" name="t_ac_user_info_id_uindex">
+    <index id="330" parent="243" name="t_ac_user_info_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="330" parent="243" name="t_ac_user_info_user_account_uindex">
+    <index id="331" parent="243" name="t_ac_user_info_user_account_uindex">
       <ColNames>user_account</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="331" parent="243" name="t_ac_user_info_t_ac_department_info_id_fk">
+    <index id="332" parent="243" name="t_ac_user_info_t_ac_department_info_id_fk">
       <ColNames>user_department</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="332" parent="243" name="t_ac_user_info_t_ac_position_info_id_fk">
+    <index id="333" parent="243" name="t_ac_user_info_t_ac_position_info_id_fk">
       <ColNames>user_position</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="333" parent="243" name="PRIMARY">
+    <key id="334" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="334" parent="243" name="t_ac_user_info_id_uindex">
+    <key id="335" parent="243" name="t_ac_user_info_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>t_ac_user_info_id_uindex</UnderlyingIndexName>
     </key>
-    <key id="335" parent="243" name="t_ac_user_info_user_account_uindex">
+    <key id="336" parent="243" name="t_ac_user_info_user_account_uindex">
       <ColNames>user_account</ColNames>
       <UnderlyingIndexName>t_ac_user_info_user_account_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="336" parent="243" name="t_ac_user_info_t_ac_department_info_id_fk">
+    <foreign-key id="337" parent="243" name="t_ac_user_info_t_ac_department_info_id_fk">
       <ColNames>user_department</ColNames>
       <RefSchemaName>huige_erp_db</RefSchemaName>
       <RefTableName>t_ac_department_info</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="337" parent="243" name="t_ac_user_info_t_ac_position_info_id_fk">
+    <foreign-key id="338" parent="243" name="t_ac_user_info_t_ac_position_info_id_fk">
       <ColNames>user_position</ColNames>
       <RefSchemaName>huige_erp_db</RefSchemaName>
       <RefTableName>t_ac_position_info</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="338" parent="244" name="user_id">
+    <column id="339" parent="244" name="user_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="244" name="role_id">
+    <column id="340" parent="244" name="role_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="340" parent="244" name="t_ac_user_role_t_ac_user_info_id_fk">
+    <index id="341" parent="244" name="t_ac_user_role_t_ac_user_info_id_fk">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="341" parent="244" name="t_ac_user_role_t_ac_role_info_id_fk">
+    <index id="342" parent="244" name="t_ac_user_role_t_ac_role_info_id_fk">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="342" parent="244" name="t_ac_user_role_t_ac_user_info_id_fk">
+    <foreign-key id="343" parent="244" name="t_ac_user_role_t_ac_user_info_id_fk">
       <ColNames>user_id</ColNames>
       <RefSchemaName>huige_erp_db</RefSchemaName>
       <RefTableName>t_ac_user_info</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="343" parent="244" name="t_ac_user_role_t_ac_role_info_id_fk">
+    <foreign-key id="344" parent="244" name="t_ac_user_role_t_ac_role_info_id_fk">
       <ColNames>role_id</ColNames>
       <RefSchemaName>huige_erp_db</RefSchemaName>
       <RefTableName>t_ac_role_info</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
+    <column id="345" parent="245" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="346" parent="245" name="req_source">
+      <Position>2</Position>
+      <Comment>请求来源，PC：PC端，WAP：WAP端 默认来源为pc</Comment>
+      <DataType>varchar(10)|0s</DataType>
+      <DefaultExpression>&apos;PC&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="347" parent="245" name="type">
+      <Position>3</Position>
+      <Comment>日志类型，‘operate’:操作日志，‘exception’:异常日志</Comment>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="348" parent="245" name="ip">
+      <Position>4</Position>
+      <Comment>操作电脑ip</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="349" parent="245" name="user_name">
+      <Position>5</Position>
+      <Comment>操作人员名字</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="350" parent="245" name="user_account">
+      <Position>6</Position>
+      <Comment>操作人员登录账号</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="351" parent="245" name="module_type">
+      <Position>7</Position>
+      <Comment>模块代码</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="352" parent="245" name="operate_code">
+      <Position>8</Position>
+      <Comment>操作代码</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="353" parent="245" name="operate_value">
+      <Position>9</Position>
+      <Comment>操作类型</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="354" parent="245" name="operate_date">
+      <Position>10</Position>
+      <Comment>操作时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="355" parent="245" name="create_date">
+      <Position>11</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="356" parent="245" name="remark">
+      <Position>12</Position>
+      <Comment>操作备注(记录参数)</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="357" parent="245" name="operate_status">
+      <Position>13</Position>
+      <Comment>操作状态（成功与否Y\N）</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="358" parent="245" name="local_addr">
+      <Position>14</Position>
+      <Comment>服务器IP</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="359" parent="245" name="method">
+      <Position>15</Position>
+      <Comment>调用方法</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="360" parent="245" name="param">
+      <Position>16</Position>
+      <Comment>方法的请求参数</Comment>
+      <DataType>varchar(2000)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="361" parent="245" name="exception_detail">
+      <Position>17</Position>
+      <Comment>异常信息</Comment>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="362" parent="245" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

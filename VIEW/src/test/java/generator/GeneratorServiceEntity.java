@@ -18,9 +18,9 @@ public class GeneratorServiceEntity {
 
     @Test
     public void generateCode() {
-        String packageName = "com.huige.erp.ac";
+        String packageName = "com.huige.erp.common";
         boolean serviceNameStartWithI = false;//user -> UserService, 设置成true: user -> IUserService
-        generateByTables(serviceNameStartWithI, packageName, "t_ac_department_info");
+        generateByTables(serviceNameStartWithI, packageName, "t_common_log");
     }
 
     private void generateByTables(boolean serviceNameStartWithI, String packageName, String... tableNames) {

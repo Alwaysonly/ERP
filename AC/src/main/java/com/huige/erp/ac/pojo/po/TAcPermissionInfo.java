@@ -6,6 +6,7 @@ import java.util.Date;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.huige.erp.common.validator.AppConfigGroup;
+import io.swagger.annotations.ApiModel;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -20,6 +21,7 @@ import java.io.Serializable;
  * @author Mr.Zhang
  * @since 2018-07-10
  */
+@ApiModel()
 public class TAcPermissionInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;

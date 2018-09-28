@@ -23,7 +23,7 @@ import java.util.Set;
  */
 public class ShiroRealm extends AuthorizingRealm {
 
-    private final Logger logger = LoggerFactory.getLogger(ShiroRealm.class);
+    private static final Logger logger = LoggerFactory.getLogger(ShiroRealm.class);
 
 
     @Autowired

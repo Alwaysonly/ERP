@@ -2,8 +2,12 @@ package com.huige.erp.ac.apis.controller;
 
 import com.huige.erp.ac.apis.service.TAcPermissionInfoService;
 import com.huige.erp.ac.configuration.AcConfiguration;
+import com.huige.erp.common.aop.AppControllerLog;
 import com.huige.erp.common.base.BaseController;
+import com.huige.erp.common.constants.LogTypes;
 import com.huige.erp.common.dto.ResponseResult;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
@@ -25,9 +29,10 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("/auth")
+@Api(tags = "2.授权控制")
 public class AuthController extends BaseController {
 
-    private final Logger logger = LoggerFactory.getLogger(AuthController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     @Autowired
     private AcConfiguration acConfiguration;
@@ -35,6 +40,8 @@ public class AuthController extends BaseController {
     private TAcPermissionInfoService tAcPermissionInfoService;
 
     @PostMapping("/login")
+    @AppControllerLog(description = "用户登录", moduleType = LogTypes.moduleType.AC, operateValue = LogTypes.operateValue.login)
+    @ApiOperation("用户登录")
     public String doLogin(String userName, String password, Model model) {
 
         if (StringUtils.isEmpty(userName) || StringUtils.isEmpty(password)) {
@@ -61,6 +68,8 @@ public class AuthController extends BaseController {
 
     @GetMapping("/navs")
     @ResponseBody
+    @AppControllerLog(description = "导航菜单", moduleType = LogTypes.moduleType.AC, operateValue = LogTypes.operateValue.select)
+    @ApiOperation("导航菜单")
     public ResponseResult getNavs() {
         return new ResponseResult(tAcPermissionInfoService.getNavsTreeData());
     }

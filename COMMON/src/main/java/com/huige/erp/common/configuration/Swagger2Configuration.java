@@ -26,7 +26,7 @@ public class Swagger2Configuration {
     private static final Logger logger = LoggerFactory.getLogger(Swagger2Configuration.class);
 
     @Bean
-    public Docket crmApi() {
+    public Docket oaApi() {
 //        ParameterBuilder ticketPar = new ParameterBuilder();
 //        List<Parameter> pars = new ArrayList<>();
 //
@@ -37,33 +37,35 @@ public class Swagger2Configuration {
 //        pars.add(ticketPar.build());    //根据每个方法名也知道当前方法在设置什么参数
 
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("0.客户关系管理系统_接口文档")
+                .groupName("0.ERP_AC")
                 .apiInfo(new ApiInfoBuilder()
-                        .title("慧格创新科技有限公司__接口文档")
-                        .description("慧格创新科技有限公司_接口文档")
+                        .title("慧格创新科技有限公司_ERP_接口文档")
+                        .description("授权中心_接口文档")
                         .contact(new Contact("Mr.Zhang", "http://zhangxichao.me", "zhenxinAngel@vip.qq.com"))
                         .version("版本号:1.0")
                         .build())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.hgitech.erp"))
+                .apis(RequestHandlerSelectors.basePackage("com.huige.erp.ac"))
                 .paths(PathSelectors.any())
                 .build()
 //                .globalOperationParameters(pars)
                 ;
     }
 
-//    @Bean
-//    public Docket oauth2Api() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .groupName("1.OAuth2授权接口")
-//                .apiInfo(new ApiInfoBuilder()
-//                        .title("慧格创新科技有限公司_客户关系管理体统_接口文档")
-//                        .description("慧格创新科技有限公司_客户关系关系体统_接口文档 OAuth2授权部分")
-//                        .contact(new Contact("Mr.Zhang", "http://zhangxichao.me", "zhenxinAngel@vip.qq.com"))
-//                        .version("版本号:1.0")
-//                        .build())
-//                .select()
-//                .paths(PathSelectors.regex("/oauth/.*"))
-//                .build();
-//    }
+    @Bean
+    public Docket systemApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("99.ERP_SYSTEM")
+                .apiInfo(new ApiInfoBuilder()
+                        .title("慧格创新科技有限公司_ERP_接口文档")
+                        .description("系统管理_接口文档")
+                        .contact(new Contact("Mr.Zhang", "http://zhangxichao.me", "zhenxinAngel@vip.qq.com"))
+                        .version("版本号:1.0")
+                        .build())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.huige.erp.system"))
+                .paths(PathSelectors.any())
+                .build()
+                ;
+    }
 }
