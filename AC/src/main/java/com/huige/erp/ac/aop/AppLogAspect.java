@@ -1,8 +1,6 @@
 package com.huige.erp.ac.aop;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.huige.erp.ac.configuration.AcConfiguration;
 import com.huige.erp.ac.pojo.po.TAcUserInfo;
 import com.huige.erp.common.aop.AppControllerLog;
 import com.huige.erp.common.aop.AppServiceLog;
@@ -10,10 +8,8 @@ import com.huige.erp.common.apis.service.TCommonLogService;
 import com.huige.erp.common.constants.LogTypes;
 import com.huige.erp.common.dto.BaseResponseResult;
 import com.huige.erp.common.dto.ResponseResult;
-import com.huige.erp.common.exception.AppRedirectException;
 import com.huige.erp.common.pojo.po.TCommonLog;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.web.util.WebUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -105,7 +101,7 @@ public class AppLogAspect {
     public void afterReturn(JoinPoint joinPoint, Object result) {
 
         TAcUserInfo userInfo = (TAcUserInfo) SecurityUtils.getSubject().getPrincipal();
-        if (userInfo == null)  return;
+        if (userInfo == null) return;
 
         String params = "";
         ResponseResult responseResult = new ResponseResult();
@@ -166,6 +162,7 @@ public class AppLogAspect {
                     .param(params)
                     .userAccount(userInfo.getUserAccount())
                     .userName(userInfo.getUserName())
+                    .exceptionDetail(responseResult.getCode() != BaseResponseResult.SUCCESS ? responseResult.getMessage() : null)
                     .build();
             // 放入队列
             queue.put(log);
@@ -198,7 +195,7 @@ public class AppLogAspect {
         try {
             if (joinPoint.getArgs() != null && joinPoint.getArgs().length > 0) {
                 for (int i = 0; i < joinPoint.getArgs().length; i++) {
-                    params += objectMapper.writeValueAsString(joinPoint.getArgs()[i])+ ";";
+                    params += objectMapper.writeValueAsString(joinPoint.getArgs()[i]) + ";";
                 }
             }
 
